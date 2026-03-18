@@ -1,0 +1,68 @@
+﻿cargo :     Checking 
+keylogger v0.1.0 (D:\CyberSec
+urity-Learning-Materials\Key_
+logger_rust\key_log)
+At line:1 char:1
++ cargo check --color never 
+> check_output.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (    Che  
+  cking ke...r_rust\key_lo   
+ g):String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+error[E0433]: failed to 
+resolve: function `main` is 
+not a crate or module
+  --> src\main.rs:27:5
+   |
+27 |     
+main::run_powershell();
+   |     ^^^^ function 
+`main` is not a crate or 
+module
+
+warning: unused variable: 
+`powershell_exe`
+  --> src\main.rs:11:9
+   |
+11 |     let powershell_exe 
+= r"C:\Windows\System32\Windo
+wsPowerShell\v1.0\powershell.
+exe";
+   |         ^^^^^^^^^^^^^^ 
+help: if this is 
+intentional, prefix it with 
+an underscore: 
+`_powershell_exe`
+   |
+   = note: 
+`#[warn(unused_variables)]` 
+(part of `#[warn(unused)]`) 
+on by default
+
+warning: unused variable: 
+`script`
+  --> src\main.rs:14:9
+   |
+14 |     let script = r#"
+   |         ^^^^^^ help: if 
+this is intentional, prefix 
+it with an underscore: 
+`_script`
+
+For more information about 
+this error, try `rustc 
+--explain E0433`.
+warning: `keylogger` (bin 
+"keylogger") generated 2 
+warnings
+error: could not compile 
+`keylogger` (bin 
+"keylogger") due to 1 
+previous error; 2 warnings 
+emitted

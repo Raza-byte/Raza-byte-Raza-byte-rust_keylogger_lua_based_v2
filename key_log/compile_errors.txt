@@ -1,0 +1,220 @@
+﻿cargo :     Checking 
+keylogger v0.1.0 (D:\Cy
+berSecurity-Learning-Ma
+terials\Key_logger_rust
+\key_log)
+At line:1 char:1
++ cargo check --color 
+never 2>&1 | Out-File 
+-Encoding utf8 
+compile_erro ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (    Checking    
+ ke...r_rust\key_lo    
+g):String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+warning: unused 
+import: `Value`
+ --> 
+src\lua_engine.rs:3:38
+  |
+3 | use mlua::{Lua, 
+Result as LuaResult, 
+Value};
+  |                    
+                  ^^^^^
+  |
+  = note: `#[warn(unuse
+d_imports)]` (part of 
+`#[warn(unused)]`) on 
+by default
+
+error[E0277]: `Rc<mlua:
+:types::sync::inner::Re
+entrantMutex<mlua::stat
+e::raw::RawLua>>` 
+cannot be sent between 
+threads safely
+   --> 
+src\lua_engine.rs:8:1
+    |
+  8 | / lazy_static::la
+zy_static! {
+  9 | |     static ref 
+LUA: 
+Mutex<Option<Lua>> = 
+Mutex::new(None);
+ 10 | | }
+    | |_^ `Rc<mlua::typ
+es::sync::inner::Reentr
+antMutex<mlua::state::r
+aw::RawLua>>` cannot 
+be sent between 
+threads safely
+    |
+    = help: within 
+`Option<Lua>`, the 
+trait `Send` is not 
+implemented for `Rc<mlu
+a::types::sync::inner::
+ReentrantMutex<mlua::st
+ate::raw::RawLua>>`
+note: required because 
+it appears within the 
+type `Lua`
+   --> C:\Users\ahmad\.
+cargo\registry\src\inde
+x.crates.io-1949cf8c6b5
+b557f\mlua-0.11.6\src\s
+tate.rs:51:12
+    |
+ 51 | pub struct Lua {
+    |            ^^^
+note: required because 
+it appears within the 
+type `Option<Lua>`
+   --> C:\Users\ahmad\.
+rustup\toolchains\stabl
+e-x86_64-pc-windows-msv
+c\lib/rustlib/src/rust\
+library\core\src\option
+.rs:600:10
+    |
+600 | pub enum 
+Option<T> {
+    |          ^^^^^^
+    = note: required 
+for `std::sync::Mutex<O
+ption<Lua>>` to 
+implement `Sync`
+note: required by a 
+bound in `Lazy`
+   --> C:\Users\ahmad\.
+cargo\registry\src\inde
+x.crates.io-1949cf8c6b5
+b557f\lazy_static-1.5.0
+\src\inline_lazy.rs:19:
+20
+    |
+ 19 | pub struct 
+Lazy<T: Sync>(Cell<Mayb
+eUninit<T>>, Once);
+    |                  
+  ^^^^ required by 
+this bound in `Lazy`
+    = note: this error 
+originates in the 
+macro 
+`__lazy_static_create` 
+which comes from the 
+expansion of the macro 
+`lazy_static::lazy_stat
+ic` (in Nightly 
+builds, run with -Z 
+macro-backtrace for 
+more info)
+
+error[E0107]: method 
+takes 1 generic 
+argument but 2 generic 
+arguments were supplied
+   --> 
+src\lua_engine.rs:42:16
+    |
+ 42 |     match 
+func.call::<_, 
+String>(input) {
+    |                
+^^^^    -------- help: 
+remove the unnecessary 
+generic argument
+    |                |
+    |                
+expected 1 generic 
+argument
+    |
+note: method defined 
+here, with 1 generic 
+parameter: `R`
+   --> C:\Users\ahmad\.
+cargo\registry\src\inde
+x.crates.io-1949cf8c6b5
+b557f\mlua-0.11.6\src\f
+unction.rs:118:12
+    |
+118 |     pub fn 
+call<R: 
+FromLuaMulti>(&self, 
+args: impl 
+IntoLuaMulti) -> 
+Result<R> {
+    |            ^^^^ -
+    = note: `impl 
+Trait` cannot be 
+explicitly specified 
+as a generic argument
+
+error[E0308]: 
+mismatched types
+   --> 
+src\lua_engine.rs:42:34
+    |
+ 42 |     match 
+func.call::<_, 
+String>(input) {
+    |                
+----------------- 
+^^^^^ expected 
+`String`, found `&str`
+    |                |
+    |                
+arguments to this 
+method are incorrect
+    |
+note: method defined 
+here
+   --> C:\Users\ahmad\.
+cargo\registry\src\inde
+x.crates.io-1949cf8c6b5
+b557f\mlua-0.11.6\src\f
+unction.rs:118:12
+    |
+118 |     pub fn 
+call<R: 
+FromLuaMulti>(&self, 
+args: impl 
+IntoLuaMulti) -> 
+Result<R> {
+    |            ^^^^
+help: try using a 
+conversion method
+    |
+ 42 |     match 
+func.call::<_, String>(
+input.to_string()) {
+    |                  
+                     
+++++++++++++
+
+Some errors have 
+detailed explanations: 
+E0107, E0277, E0308.
+For more information 
+about an error, try 
+`rustc --explain 
+E0107`.
+warning: `keylogger` 
+(bin "keylogger") 
+generated 1 warning
+error: could not 
+compile `keylogger` 
+(bin "keylogger") due 
+to 3 previous errors; 
+1 warning emitted
